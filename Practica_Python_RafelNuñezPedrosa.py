@@ -9,3 +9,41 @@ elif numero_usuario > 0:
     print("El número es positivo.")
 else:
     print("El número es negativo.")
+
+def calcular_iva(precio):
+    return precio * 0.21
+
+print(calcular_iva(100))
+
+lista_empleados=["Ana", "Carlos", "María", "Luis"]
+lista_empleados.append("Pedro")
+info_empleado = {"nombre": "Ana", "edad": 30, "departamento": "Desarrolladora"}
+print("Departamento: ", info_empleado["departamento"])
+
+class Producto:
+    def __init__(self, nombre, precio, cantidad):
+        self.nombre = nombre
+        self.precio = precio
+        self.cantidad = cantidad
+
+    def get_nombre(self):
+        return self.nombre
+
+    def calcular_total(self):
+        return self.precio * self.cantidad
+    def disminuir_cantidad(self, cantidad_vendida):
+        self.cantidad -= cantidad_vendida
+    def aumentar_cantidad(self, cantidad_recibida):
+        self.cantidad += cantidad_recibida
+
+portatil = Producto("Portátil", 800, 2)
+
+print("El precio totoal de", portatil.get_nombre(), "es", portatil.calcular_total())
+
+portatil.aumentar_cantidad(3)
+
+print("El precio totoal de", portatil.get_nombre(), "es", portatil.calcular_total())
+
+portatil.disminuir_cantidad(4)
+
+print("El precio totoal de", portatil.get_nombre(), "es", portatil.calcular_total())
