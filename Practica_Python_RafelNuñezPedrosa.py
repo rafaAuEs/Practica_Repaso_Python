@@ -1,3 +1,5 @@
+import csv ## importar para el ejercicio 6
+
 nombre_empresa="TechSolutions"
 año_fundacion=2010
 print("La empresa", nombre_empresa, "fue fundada en el año", año_fundacion)
@@ -35,6 +37,8 @@ class Producto:
         self.cantidad -= cantidad_vendida
     def aumentar_cantidad(self, cantidad_recibida):
         self.cantidad += cantidad_recibida
+    def __str__(self):## esto es del ejercicio 6
+        return f"{self.nombre} - Precio: ${self.precio:.2f}, Cantidad: {self.cantidad}"
 
 portatil = Producto("Portátil", 800, 2)
 
@@ -47,3 +51,18 @@ print("El precio totoal de", portatil.get_nombre(), "es", portatil.calcular_tota
 portatil.disminuir_cantidad(4)
 
 print("El precio totoal de", portatil.get_nombre(), "es", portatil.calcular_total())
+
+with open("empleados.txt", "r") as txt:
+    contenido = txt.read()
+    print(contenido)
+
+productos = []
+
+with open("productos.csv", newline='', encoding="utf-8") as archivo:
+    lector = csv.DictReader(archivo)  # Usa la primera línea como encabezado
+    for fila in lector:
+        producto = Producto(fila["nombre"], float(fila["precio"]), int(fila["cantidad"]))
+        productos.append(producto)
+
+for p in productos:
+    print(p)
