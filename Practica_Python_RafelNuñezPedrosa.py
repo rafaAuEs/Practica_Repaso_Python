@@ -61,7 +61,7 @@ productos = []
 with open("productos.csv", newline='', encoding="utf-8") as archivo:
     lector = csv.DictReader(archivo)  # Usa la primera línea como encabezado
     for fila in lector:
-        producto = Producto(fila["nombre"], float(fila["precio"]), int(fila["cantidad"]))
+        producto={"nombre": fila["nombre"], "precio": float(fila["precio"]), "cantidad": int(fila["cantidad"])}
         productos.append(producto)
 
 for p in productos:
