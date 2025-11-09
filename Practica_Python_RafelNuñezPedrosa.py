@@ -70,7 +70,7 @@ csvArchivo = open('productos.csv')##abrimos el archivo csv
 productos = csv.reader(csvArchivo, delimiter=',')##leemos el archivo, con reader tenemos el parametro delimiter para indicar el separador
 lista_productos=[]##lista para guardar las instancias
 
-for f in productos:
+for f in productos:##recorremos la variable productos, creando las instancias de la clase Producto y las añadimos a la lista
     instancia = Producto(f[0], float(f[1]), int(f[2]))##creamos la instancia con los datos del csv
     lista_productos.append(instancia)##añadimos la instancia a la lista
 
