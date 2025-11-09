@@ -74,5 +74,5 @@ for f in productos:##recorremos la variable productos, creando las instancias de
     instancia = Producto(f[0], float(f[1]), int(f[2]))##creamos la instancia con los datos del csv
     lista_productos.append(instancia)##añadimos la instancia a la lista
 
-for p in lista_productos:##recorremos la lista e imprimimos el nombre y el total
+for p in lista_productos:##recorremos la lista y comprobamos si son objetos de la clase Producto usando los getters de la clase
     print("Producto:", p.get_nombre(), "- precio:", p.get_precio(), "- cantidad:", p.get_cantidad(), "- total:", p.calcular_total())
